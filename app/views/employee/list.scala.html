@@ -2,13 +2,7 @@
 @main(Messages("application.name")) {
     <dl class="products">
     @for(employee <- employees) {
-
-        <dd> @employee.in </dd>
-
-        <dd> @employee.name</dd>
+        <dd> @employee.in , @employee.name</dd>
     }
     </dl>
-    <p>
-
-    </p>
-}
+ }
