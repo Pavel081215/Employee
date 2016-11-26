@@ -1,6 +1,6 @@
 package models
 
-case class Employee (in: Int, name: String, surname: String)
+case class Employee (id: Int, name: String, surname: String)
 
 object Employee {
 
@@ -18,5 +18,5 @@ object Employee {
   )
 
   //def find(): employee = employees.groupBy()
-  def findAll = employees.toList.sortBy(_.name)
+  def findAll = employees.toList.sortBy(_.id)
 }
