@@ -1,0 +1,14 @@
+@(employees: List[Employee])(implicit flash: Flash, lang: Lang)
+@main(Messages("application.name")) {
+    <dl class="products">
+    @for(employee <- employees) {
+
+        <dd> @employee.in </dd>
+
+        <dd> @employee.name</dd>
+    }
+    </dl>
+    <p>
+
+    </p>
+}
