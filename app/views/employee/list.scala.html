@@ -1,8 +1,25 @@
 @(employees: List[Employee])(implicit flash: Flash, lang: Lang)
-@main(Messages("application.name")) {
-    <dl class="products">
-    @for(employee <- employees) {
-        <dd> @employee.id , @employee.name</dd>
+    @main(Messages("application.name")) {
+        <dl class="products">
+
+            <table>
+            @for(employee <- employees) {
+
+             <p><dm>@employee.id , @employee.name</dm> </p>
+
+                <form action = @routes.Employees.deleteElement(employee.id)>
+                    <input type="submit" value="Delete" onclick="return confirm('Are you sure?');"/>
+                </form>
+
+                <form action = @routes.Employees.show(employee.name) >
+                    <input type="submit" value="Select" onclick="return confirm('Are you sure?'); "/>
+                </form>
+
+                <br/>
+                <br/>
+            }
+            </table>
+
+
+        </dl>
     }
-    </dl>
- }

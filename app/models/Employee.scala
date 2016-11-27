@@ -21,7 +21,7 @@ object Employee {
       ).toList
   }
 
-  def findAll = employees1.sortBy(_.id)
+  def findAll = employees1.sortBy(_.name)
 
   def findByEan(name: String)=  employees1.find(_.name == name)
 
@@ -36,6 +36,12 @@ object Employee {
       updatedRows == 1
     }
 
+  def delete(id: Long) =
+    DB.withConnection { implicit c =>
+      SQL("delete from employee where id = {id}").on(
+        'id -> id
+      ).executeUpdate()
+    }
 
 
 

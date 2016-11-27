@@ -11,3 +11,8 @@ GET        /products              controllers.Employees.newProduct
 GET        /save                  controllers.Employees.save
 
 GET        /update                controllers.Employees.update
+
+GET        /show/:name                controllers.Employees.show(name:String)
+
+
+GET        /deleteElement/:id         controllers.Employees.deleteElement(id:Long)

@@ -7,7 +7,6 @@ import play.api.mvc.{Action, Controller}
 import models._
 
 
-
 object Employees extends Controller {
 
   def list = Action { implicit request =>
@@ -33,10 +32,12 @@ object Employees extends Controller {
       },
       success = { newProduct =>
         Employee.add(newProduct)
+
         Redirect(routes.Application.index)
       }
     )
   }
+
 
   def show(name: String) = Action { implicit request =>
     val employee = Employee.findByEan(name)
@@ -53,6 +54,7 @@ object Employees extends Controller {
     else
 
       productForm
+
     Ok(views.html.employee.editEmployee(form))
   }
 
@@ -61,5 +63,19 @@ object Employees extends Controller {
 
     Ok(views.html.employee.editEmployee(productForm))
   }
+
+
+  def delete = Action { implicit request =>
+
+    Ok(views.html.employee.editEmployee(productForm))
+  }
+
+
+  def deleteElement(id: Long) = Action { implicit request =>
+
+    Employee.delete(id)
+    Redirect(routes.Application.index())
+  }
+
 
 }
