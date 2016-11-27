@@ -8,8 +8,10 @@ scalaVersion := "2.11.6"
 
 
 // https://mvnrepository.com/artifact/postgresql/postgresql
-libraryDependencies += "postgresql" % "postgresql" % "9.1-901.jdbc4"
 
+libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
+
+libraryDependencies += "postgresql" % "postgresql" % "9.1-901.jdbc4"
 
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  

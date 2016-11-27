@@ -16,6 +16,7 @@
               <option name="version" value="2.3.8" />
               <option name="sourceDir" value="D:\skala\project\test\Employee\conf" />
               <option name="confDir" value="D:\skala\project\test\Employee\app" />
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.3.8.jar" />
               <option name="templateImports">
                 <list>
                   <option value="play.api.templates.PlayMagic._" />

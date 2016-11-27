@@ -1,3 +1,6 @@
+
+
+
 CREATE TABLE employee(
     id                  bigint primary key not null,
     name                character varying,
@@ -6,5 +9,3 @@ CREATE TABLE employee(
 );
 
 select *from employee;
-
-INSERT INTO employee VALUES (1,'Ivan' , 'Susanin' );

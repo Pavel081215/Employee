@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/controllers/Application.scala" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/controllers/Employees.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/models/Employee.scala" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/main.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/conf/messages" charset="UTF-8" />
   </component>

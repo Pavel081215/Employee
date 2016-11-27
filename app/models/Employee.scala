@@ -1,22 +1,24 @@
 package models
 
+
 case class Employee (id: Int, name: String, surname: String)
 
 object Employee {
 
-  var employees = Set(
-    Employee(1, "Ivan",
-      "Susanin"),
-    Employee(2, "Koly",
-      "Khopkin"),
-    Employee(3, "Olena",
-      "Klushuna"),
-    Employee(4, "Veniamin",
-      "Pusturiv"),
-    Employee(5, "Casanldra",
-      "Zebrova")
-  )
+  import anorm.SQL
+  import anorm.SqlQuery
+  import play.api.Play.current
+  import play.api.db.DB
 
-  //def find(): employee = employees.groupBy()
-  def findAll = employees.toList.sortBy(_.id)
+  val sql: SqlQuery = SQL("select * from employee order by name asc")
+
+  var employees1 : List[Employee] = DB.withConnection {
+    implicit connection =>
+      sql().map ( row =>
+        Employee(row[Int]("id"), row[String]("name"),
+          row[String]("surname"))
+      ).toList
+  }
+
+ def findAll = employees1.sortBy(_.id)
 }
