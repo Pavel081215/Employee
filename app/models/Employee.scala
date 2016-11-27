@@ -1,8 +1,6 @@
 package models
 
 
-
-
 case class Employee(id: Long, name: String, surname: String)
 
 object Employee {
@@ -25,12 +23,20 @@ object Employee {
 
   def findAll = employees1.sortBy(_.id)
 
-  def findByEan(name: String) = employees1.find(_.name == name)
+  def findByEan(name: String)=  employees1.find(_.name == name)
 
 
+  def add(employee: Employee): Boolean =
+    DB.withConnection { implicit connection =>
+      val updatedRows = SQL("INSERT INTO employee VALUES ({id},{name} , {surname}); ").on(
+        "id" -> employee.id,
+        "name" -> employee.name,
+        "surname" -> employee.surname).
+        executeUpdate()
+      updatedRows == 1
+    }
 
 
-  def add(employee: Employee) = ???
 
 
 

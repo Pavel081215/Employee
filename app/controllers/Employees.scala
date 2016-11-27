@@ -5,10 +5,10 @@ import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc.{Action, Controller}
 import models._
-import play.api.mvc.Flash
 
 
-object Employees extends Controller{
+
+object Employees extends Controller {
 
   def list = Action { implicit request =>
     val employees = Employee.findAll
@@ -33,18 +33,17 @@ object Employees extends Controller{
       },
       success = { newProduct =>
         Employee.add(newProduct)
-        Redirect(routes.Employees.show(newProduct.name))
+        Redirect(routes.Application.index)
       }
     )
   }
 
   def show(name: String) = Action { implicit request =>
-    Employee.findByEan(name).map { employee =>
+    val employee = Employee.findByEan(name)
+    employee.map { employee =>
       Ok(views.html.employee.details(employee))
     }.getOrElse(NotFound)
   }
-
-
 
 
   def newProduct = Action { implicit request =>
