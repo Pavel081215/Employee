@@ -1,0 +1,16 @@
+@(productForm: Form[Employee]
+)(implicit flash: Flash, lang: Lang)
+@import helper._
+@import helper.twitterBootstrap._
+@main(Messages("FORM")) {
+
+@helper.form(action = routes.Employees.save()) {
+<fieldset>
+    @helper.inputText(productForm("in"))
+    @helper.inputText(productForm("name"))
+    @helper.textarea(productForm("surname"))
+</fieldset>
+<p><input type="submit" class="btn primary"
+          value='@Messages("NEW")'></p>
+}
+}

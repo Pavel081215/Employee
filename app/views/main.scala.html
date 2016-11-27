@@ -17,24 +17,10 @@
                         <a class="brand" href="@routes.Application.index()">
                         @Messages("application.name")
                         </a>
-
                     </div>
                 </div>
             </div>
-            <div class="container">
-                @if(flash.get("success").isDefined) {
-                    <div class="alert alert-success">
-                    @flash.get("success")
-                    </div>
-                }
-                @if(flash.get("error").isDefined) {
-                    <div class="alert alert-error">
-                    @flash.get("error")
-                    </div>
-                }
-                @content
-
-            </div>
+            @content
         </div>
     </body>
 </html>

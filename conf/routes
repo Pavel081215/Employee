@@ -1,6 +1,13 @@
-GET /assets/*file             controllers.Assets.at(path="/public", file)
+GET        /assets/*file          controllers.Assets.at(path="/public", file)
 
-GET     /                           controllers.Application.index
-GET     /employee                   controllers.Employees.list
+GET        /                      controllers.Application.index
+GET        /employee              controllers.Employees.list
 
-    
+GET        /products/:name        controllers.Employees.show(name:String)
+
+GET        /products              controllers.Employees.newProduct
+
+
+GET        /save                  controllers.Employees.save
+
+GET        /update                controllers.Employees.update

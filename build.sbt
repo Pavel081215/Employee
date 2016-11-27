@@ -7,7 +7,7 @@ lazy val `employee` = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.6"
 
 
-// https://mvnrepository.com/artifact/postgresql/postgresql
+
 
 libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
 
